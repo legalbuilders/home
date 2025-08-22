@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal.Builders - Interactive Go-to-Market Playbooks</title>
-    <!-- Chosen Palette: Warm Neutrals with Indigo Accent -->
+    <!-- Chosen Palette: Blue, Orange, Gray -->
     <!-- Application Structure Plan: The SPA is designed as a narrative journey for a potential client. It starts with a strong value proposition (Hero), explains the "How" with an interactive tabbed interface for the Playbooks, details the "What" (Tools), builds trust with "Who" (About/Clients/Testimonials), offers further value (Insights), and ends with a clear "Next Step" (Contact). This structure logically guides the user through the offerings and builds confidence before the call to action. The tabbed interface for the playbooks is the core interactive element, allowing users to explore the detailed offerings without being overwhelmed by a long page of text. -->
     <!-- Visualization & Content Choices: The primary interaction is the tabbed content display for the Playbooks. Report Info: Detailed lists for each playbook's components. Goal: Present dense, structured information in a digestible, user-controlled format. Viz/Presentation: A clean, interactive tab system. Interaction: Clicking a playbook tab reveals its full details. Justification: This avoids a "wall of text" and allows users to focus on the playbooks most relevant to them, improving usability and information retention. Library/Method: Vanilla JavaScript for tab functionality. Other content is presented in clean, scannable cards and text blocks. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #fdfcfb;
             color: #333;
         }
+        .font-lora {
+            font-family: 'Lora', serif;
+        }
         .tab-active {
-            border-color: #4338ca;
-            color: #4338ca;
+            border-color: #2563eb; /* blue-600 */
+            color: #2563eb; /* blue-600 */
             font-weight: 600;
-            background-color: #eef2ff;
+            background-color: #eff6ff; /* blue-50 */
         }
         #hero-cta-button {
             opacity: 0;
@@ -48,22 +53,22 @@
     <!-- Header -->
     <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-gray-900">LEGAL<span class="text-indigo-700">.BUILDERS</span></h1>
+            <h1 class="text-2xl font-bold text-gray-900"><span class="font-lora">LEGAL</span><span class="text-blue-600">.BUILDERS</span></h1>
             <nav class="hidden md:flex space-x-8 items-center">
-                <a href="#playbooks" class="text-gray-600 hover:text-indigo-700 transition-colors duration-300">Playbooks</a>
-                <a href="#tools" class="text-gray-600 hover:text-indigo-700 transition-colors duration-300">Tools</a>
-                <a href="#about" class="text-gray-600 hover:text-indigo-700 transition-colors duration-300">About</a>
-                <a href="#contact" class="bg-indigo-700 text-white font-semibold px-5 py-2 rounded-lg hover:bg-indigo-800 transition-all duration-300 shadow-sm">Let's connect</a>
+                <a href="#playbooks" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Playbooks</a>
+                <a href="#tools" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Tools</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">About</a>
+                <a href="#contact" class="bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-sm">Let's connect</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-             <a href="#playbooks" class="block py-2 text-gray-600 hover:text-indigo-700">Playbooks</a>
-             <a href="#tools" class="block py-2 text-gray-600 hover:text-indigo-700">Tools</a>
-             <a href="#about" class="block py-2 text-gray-600 hover:text-indigo-700">About</a>
-             <a href="#contact" class="mt-4 block bg-indigo-700 text-white text-center font-semibold px-6 py-2 rounded-lg hover:bg-indigo-800 transition duration-300">Let's connect</a>
+             <a href="#playbooks" class="block py-2 text-gray-600 hover:text-blue-600">Playbooks</a>
+             <a href="#tools" class="block py-2 text-gray-600 hover:text-blue-600">Tools</a>
+             <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About</a>
+             <a href="#contact" class="mt-4 block bg-blue-600 text-white text-center font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Let's connect</a>
         </div>
     </header>
 
@@ -75,9 +80,9 @@
                      alt="A map with colorful pins indicating locations" class="w-full h-full object-cover opacity-10">
             </div>
             <div class="container mx-auto px-6 text-center relative">
-                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">Giving an <span class="text-red-600">edge</span> to<br>legal tech builders</h2>
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">Giving an <span class="text-orange-500">edge</span> to<br>legal tech builders</h2>
                 <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">AI tools and guided playbooks to power your go-to-market.</p>
-                <a href="#contact" id="hero-cta-button" class="mt-10 inline-block bg-red-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-300 hover:scale-105 text-lg shadow-lg">BOOK A STRATEGY CALL</a>
+                <a href="#contact" id="hero-cta-button" class="mt-10 inline-block bg-orange-500 text-white font-bold px-8 py-4 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 text-lg shadow-lg">BOOK A STRATEGY CALL</a>
             </div>
         </section>
 
@@ -85,7 +90,7 @@
         <section class="py-20 bg-slate-100">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Power your GTM with <span class="text-indigo-700">custom execution plans</span>, <span class="text-indigo-700">expert guidance</span> and <span class="text-indigo-700">AI assistants</span></h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Power your GTM with <span class="text-blue-600">custom execution plans</span>, <span class="text-blue-600">expert guidance</span> and <span class="text-blue-600">AI assistants</span></h3>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
                     <div class="bg-white p-8 rounded-lg shadow-md text-center">
@@ -120,31 +125,31 @@
                     <h3 class="text-4xl font-bold text-gray-900">Meet the Guided Playbooks</h3>
                 </div>
                 
-                <div class="flex flex-col lg:flex-row gap-12">
+                <div class="flex flex-col lg:flex-row gap-8">
                     <!-- Tabs Navigation -->
                     <div class="lg:w-1/3">
                         <div class="flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 horizontal-tabs">
-                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-indigo-50 whitespace-nowrap tab-active" data-tab="buyer-journey">
+                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-blue-50 whitespace-nowrap tab-active" data-tab="buyer-journey">
                                 <h4 class="font-semibold text-lg">Buyer's Journey</h4>
                                 <p class="text-sm hidden lg:block">Perfect your online presence</p>
                             </button>
-                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-indigo-50 whitespace-nowrap" data-tab="linkedin">
+                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-blue-50 whitespace-nowrap" data-tab="linkedin">
                                 <h4 class="font-semibold text-lg">LinkedIn</h4>
                                 <p class="text-sm hidden lg:block">Connect, nurture and convert</p>
                             </button>
-                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-indigo-50 whitespace-nowrap" data-tab="product">
+                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-blue-50 whitespace-nowrap" data-tab="product">
                                 <h4 class="font-semibold text-lg">Product</h4>
                                 <p class="text-sm hidden lg:block">Accelerate product-market fit</p>
                             </button>
-                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-indigo-50 whitespace-nowrap" data-tab="account-targeting">
+                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-blue-50 whitespace-nowrap" data-tab="account-targeting">
                                 <h4 class="font-semibold text-lg">Account Targeting</h4>
                                 <p class="text-sm hidden lg:block">Identify prospects with precision</p>
                             </button>
-                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-indigo-50 whitespace-nowrap" data-tab="sales">
+                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-blue-50 whitespace-nowrap" data-tab="sales">
                                 <h4 class="font-semibold text-lg">Sales</h4>
                                 <p class="text-sm hidden lg:block">Drive ARR</p>
                             </button>
-                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-indigo-50 whitespace-nowrap" data-tab="partnering-exit">
+                            <button class="tab-button text-left flex-shrink-0 p-4 border-b-4 lg:border-b-0 lg:border-l-4 border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-r-lg text-gray-500 hover:bg-blue-50 whitespace-nowrap" data-tab="partnering-exit">
                                 <h4 class="font-semibold text-lg">Partnering & Exit</h4>
                                 <p class="text-sm hidden lg:block">Begin with the end in mind</p>
                             </button>
@@ -170,8 +175,8 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h4 class="text-2xl font-semibold text-gray-900">🌐 Presence Management</h4>
-                        <p class="mt-4 text-gray-600">Optimize your prospect's journey. Automatically publish and update your product information on 16+ product directories and review sites. <a href="http://listeasy.legal" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">Learn more at listeasy.legal</a>.</p>
+                        <h4 class="text-2xl font-semibold text-gray-900">🌐 Presence</h4>
+                        <p class="mt-4 text-gray-600">Optimize your prospect's journey. Automatically publish and update your product information on 16+ product directories and review sites. <a href="http://listeasy.legal" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Learn more at listeasy.legal</a>.</p>
                     </div>
                     <div class="bg-white p-8 rounded-lg shadow-md">
                         <h4 class="text-2xl font-semibold text-gray-900">🧭 Landscape</h4>
@@ -189,7 +194,7 @@
                         <img src="https://media.licdn.com/dms/image/v2/C4E03AQENfXFxfE5GEw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1516194216111?e=1758758400&v=beta&t=O2psz5CXEenOp75WsFVDX87VFu8ppl5-_VKuo_nPm5c" alt="Portrait of Jim Brock" class="rounded-full shadow-2xl mx-auto w-64 h-64 md:w-full md:h-auto object-cover">
                     </div>
                     <div class="md:w-2/3 text-center md:text-left">
-                        <h3 class="text-4xl font-bold text-gray-900">Meet Jim Brock</h3>
+                        <h3 class="text-4xl font-bold text-gray-900">Meet <span class="text-blue-600">Jim Brock</span></h3>
                         <p class="mt-6 text-gray-600 leading-relaxed">Like you, I'm a builder. In my career, I've been a law firm partner, an early stage VC, an angel investor, a public company senior executive, and founder or operator of six startups—five in legal tech. Now I'm fortunate to support passionate startup and law firm builders in tackling challenges in funding, product, go-to-market, partner development and exits. To do this I have embraced a frontier consulting model grounded in collaborative AI tools. Join me on this quest.</p>
                     </div>
                 </div>
@@ -205,21 +210,21 @@
                 </div>
                 <div class="max-w-5xl mx-auto">
                     <div class="text-center my-12">
-                        <p class="text-xl font-bold text-indigo-700">Jim Brock - Lawdragon Top Leading AI & Legal Tech Advisors 2025</p>
+                        <p class="text-xl font-bold text-blue-600">Jim Brock - Lawdragon Top Leading AI & Legal Tech Advisors 2025</p>
                     </div>
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col justify-center">
                             <p class="text-gray-600 text-lg">"I have had the privilege of working with Jim Brock as an advisor, and his contributions have been nothing short of remarkable. His expertise has had a significant impact on our company's trajectory."</p>
                             <p class="mt-4 font-bold text-gray-900 flex items-center">
                                 <img src="https://media.licdn.com/dms/image/v2/D5603AQFpIR_Vl1hUSA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1672977188440?e=1758758400&v=beta&t=P_a_L3ssAsDKao9KSEdab71G7yTAr_U6WO7rOY4K0tU" alt="Avatar for Kenny Eliason" class="w-10 h-10 rounded-full mr-3 object-cover">
-                                Kenny Eliason, <a href="https://quilia.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">Quilia</a>
+                                Kenny Eliason, <a href="https://quilia.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Quilia</a>
                             </p>
                         </div>
                         <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col justify-center">
                             <p class="text-gray-600 text-lg">"Jim has helped our company immeasurably by combining deep experience in legal tech and startups with cutting edge AI techniques to help us to grow rapidly."</p>
                             <p class="mt-4 font-bold text-gray-900 flex items-center">
                                 <img src="https://media.licdn.com/dms/image/v2/D5603AQGL_SN6F9uXcA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1677268425076?e=1758758400&v=beta&t=1dtG3v0neSWIg0eINRXX-pOYtWYnahSzj6sSZdOaF6U" alt="Avatar for Jason Beatty" class="w-10 h-10 rounded-full mr-3 object-cover">
-                                Jason Beatty, <a href="https://transferhub.io" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">TransferHub</a>
+                                Jason Beatty, <a href="https://transferhub.io" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">TransferHub</a>
                             </p>
                         </div>
                     </div>
@@ -254,30 +259,30 @@
                     <a href="#" class="block bg-white rounded-lg shadow-md overflow-hidden group">
                         <img src="insights-27-things.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="Number 27">
                         <div class="p-6">
-                            <h4 class="font-semibold text-lg group-hover:text-indigo-700">27 Things to Know About Legal Tech</h4>
+                            <h4 class="font-semibold text-lg group-hover:text-blue-700">27 Things to Know About Legal Tech</h4>
                         </div>
                     </a>
                      <a href="#" class="block bg-white rounded-lg shadow-md overflow-hidden group">
                         <img src="insights-15-more-things.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="Number 15">
                         <div class="p-6">
-                            <h4 class="font-semibold text-lg group-hover:text-indigo-700">15 More things to know About Legal Tech (AI Edition)</h4>
+                            <h4 class="font-semibold text-lg group-hover:text-blue-700">15 More things to know About Legal Tech (AI Edition)</h4>
                         </div>
                     </a>
                      <a href="#" class="block bg-white rounded-lg shadow-md overflow-hidden group">
                         <img src="insights-client-confidentiality.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="Confidentiality concept">
                         <div class="p-6">
-                            <h4 class="font-semibold text-lg group-hover:text-indigo-700">Client Confidentiality in the Age of AI</h4>
+                            <h4 class="font-semibold text-lg group-hover:text-blue-700">Client Confidentiality in the Age of AI</h4>
                         </div>
                     </a>
                      <a href="#" class="block bg-white rounded-lg shadow-md overflow-hidden group">
                         <img src="insights-useful-sites-links.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="Chain links">
                         <div class="p-6">
-                            <h4 class="font-semibold text-lg group-hover:text-indigo-700">21 Useful sites for Legal Builders</h4>
+                            <h4 class="font-semibold text-lg group-hover:text-blue-700">21 Useful sites for Legal Builders</h4>
                         </div>
                     </a>
                 </div>
                 <div class="text-center mt-12">
-                    <a href="#" class="inline-block bg-indigo-100 text-indigo-800 font-semibold px-6 py-3 rounded-lg hover:bg-indigo-200 transition duration-300">
+                    <a href="#" class="inline-block bg-blue-100 text-blue-800 font-semibold px-6 py-3 rounded-lg hover:bg-blue-200 transition duration-300">
                         SUBSCRIBE TO THE LEGAL BUILDER NEWSLETTER
                     </a>
                 </div>
@@ -285,51 +290,52 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-indigo-800 text-white">
+        <section id="contact" class="py-24 bg-blue-800 text-white">
             <div class="container mx-auto px-6 max-w-4xl text-center">
                 <h3 class="text-4xl font-bold">Let's connect</h3>
-                <p class="mt-4 text-lg text-indigo-200">Set up a free brainstorming session and situation analysis.</p>
-                <form class="mt-12 bg-white p-8 rounded-lg shadow-2xl text-left text-gray-800">
+                <p class="mt-4 text-lg text-blue-200">Set up a free brainstorming session and situation analysis.</p>
+                <form id="contact-form" class="mt-12 bg-white p-8 rounded-lg shadow-2xl text-left text-gray-800">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label for="first-name" class="block text-sm font-medium">First name <span class="text-red-500">*</span></label>
-                            <input type="text" id="first-name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            <input type="text" name="FirstName" id="first-name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div>
                             <label for="last-name" class="block text-sm font-medium">Last name <span class="text-red-500">*</span></label>
-                            <input type="text" id="last-name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            <input type="text" name="LastName" id="last-name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium">Email <span class="text-red-500">*</span></label>
-                            <input type="email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            <input type="email" name="Email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div>
                             <label for="company" class="block text-sm font-medium">Company name <span class="text-red-500">*</span></label>
-                            <input type="text" id="company" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                            <input type="text" name="Company" id="company" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div class="md:col-span-2">
                              <label for="work" class="block text-sm font-medium">What are you working on?</label>
-                             <textarea id="work" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                             <textarea id="work" name="WorkDetails" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
                         </div>
                         <div class="md:col-span-2">
                             <label class="block text-sm font-medium text-gray-700 mb-4">Which playbooks appeal to you?</label>
                             <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-                                <label class="flex items-center"><input type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 mr-2"> Buyer Journey</label>
-                                <label class="flex items-center"><input type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 mr-2"> LinkedIn</label>
-                                <label class="flex items-center"><input type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 mr-2"> Account-Based GTM</label>
-                                <label class="flex items-center"><input type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 mr-2"> Product</label>
-                                <label class="flex items-center"><input type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 mr-2"> Sales</label>
-                                <label class="flex items-center"><input type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 mr-2"> Partnering and Exit</label>
+                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="Buyer Journey" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Buyer Journey</label>
+                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="LinkedIn" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> LinkedIn</label>
+                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="Account-Based GTM" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Account-Based GTM</label>
+                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="Product" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Product</label>
+                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="Sales" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Sales</label>
+                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="Partnering and Exit" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Partnering and Exit</label>
                             </div>
                         </div>
                          <div class="md:col-span-2">
                             <label for="deck" class="block text-sm font-medium text-gray-700">To get things moving quickly, please share your company deck or summary.</label>
-                            <input type="file" id="deck" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"/>
+                            <input type="file" id="deck" name="deck" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
                         </div>
                     </div>
                     <div class="text-center mt-6">
-                        <button type="submit" class="bg-indigo-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-indigo-800 transition-transform duration-300 hover:scale-105 shadow-lg">Submit</button>
+                        <button type="submit" class="bg-blue-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-700 transition-transform duration-300 hover:scale-105 shadow-lg">Submit</button>
                     </div>
+                    <div id="form-status" class="mt-4 text-center"></div>
                 </form>
             </div>
         </section>
@@ -417,15 +423,15 @@
                     <p class="text-gray-600 mb-6">${data.description}</p>
                     <div class="grid md:grid-cols-3 gap-6 text-sm">
                         <div>
-                            <h5 class="font-semibold text-lg mb-3 text-indigo-700">Execution plan</h5>
+                            <h5 class="font-semibold text-lg mb-3 text-blue-700">Execution plan</h5>
                             <div class="space-y-2">${generateItemsHTML(data.execution)}</div>
                         </div>
                         <div>
-                            <h5 class="font-semibold text-lg mb-3 text-indigo-700">Consultation</h5>
+                            <h5 class="font-semibold text-lg mb-3 text-blue-700">Consultation</h5>
                             <div class="space-y-2">${generateItemsHTML(data.consultations)}</div>
                         </div>
                         <div>
-                            <h5 class="font-semibold text-lg mb-3 text-indigo-700">AI and automation</h5>
+                            <h5 class="font-semibold text-lg mb-3 text-blue-700">AI and automation</h5>
                             <div class="space-y-2">${generateItemsHTML(data.automation)}</div>
                         </div>
                     </div>
@@ -443,6 +449,49 @@
 
             // Initial setup
             updateTabContent('buyer-journey');
+
+            // Form submission to Google Sheet
+            const form = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzpxXyLCmuwa1TYms2vRUCfBoLsDMAmnwK54c-BaYxlObpJh7AhWNzYdXd4Q1fmsQ1Q3w/exec';
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                formStatus.textContent = 'Submitting...';
+                formStatus.className = 'text-gray-700';
+
+                // Collect checked playbooks
+                const checkedPlaybooks = Array.from(form.querySelectorAll('input[name="Playbooks"]:checked'))
+                                              .map(cb => cb.value)
+                                              .join(', ');
+
+                const formData = new FormData(form);
+                formData.set('Playbooks', checkedPlaybooks);
+                
+                // We need to convert FormData to a plain object for URLSearchParams
+                const plainFormData = Object.fromEntries(formData.entries());
+                const dataWithPlaybooks = { ...plainFormData, Playbooks: checkedPlaybooks };
+                
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: new URLSearchParams(dataWithPlaybooks)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        form.reset();
+                        formStatus.textContent = 'Thank you! Your message has been sent.';
+                        formStatus.className = 'text-green-600';
+                    } else {
+                        throw new Error(data.error || 'Unknown error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    formStatus.textContent = 'There was an error sending your message. Please try again.';
+                    formStatus.className = 'text-red-600';
+                });
+            });
         });
     </script>
 </body>
