@@ -315,17 +315,6 @@
                              <label for="work" class="block text-sm font-medium">What are you working on?</label>
                              <textarea id="work" name="WorkDetails" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-slate-500 focus:border-slate-500"></textarea>
                         </div>
-                        <div class="md:col-span-2">
-                            <label class="block text-sm font-medium text-gray-700 mb-4">Which playbooks appeal to you?</label>
-                            <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="Buyer Journey" class="h-4 w-4 text-slate-600 border-gray-300 rounded focus:ring-slate-500 mr-2"> Buyer Journey</label>
-                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="LinkedIn" class="h-4 w-4 text-slate-600 border-gray-300 rounded focus:ring-slate-500 mr-2"> LinkedIn</label>
-                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="Account-Based GTM" class="h-4 w-4 text-slate-600 border-gray-300 rounded focus:ring-slate-500 mr-2"> Account-Based GTM</label>
-                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="Product" class="h-4 w-4 text-slate-600 border-gray-300 rounded focus:ring-slate-500 mr-2"> Product</label>
-                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="Sales" class="h-4 w-4 text-slate-600 border-gray-300 rounded focus:ring-slate-500 mr-2"> Sales</label>
-                                <label class="flex items-center"><input type="checkbox" name="Playbooks" value="Partnering and Exit" class="h-4 w-4 text-slate-600 border-gray-300 rounded focus:ring-slate-500 mr-2"> Partnering and Exit</label>
-                            </div>
-                        </div>
                     </div>
                     <div class="text-center mt-6">
                         <button type="submit" class="bg-slate-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-slate-800 transition-transform duration-300 hover:scale-105 shadow-lg">Submit</button>
@@ -455,21 +444,11 @@
                 formStatus.textContent = 'Submitting...';
                 formStatus.className = 'text-gray-700';
 
-                // Collect checked playbooks
-                const checkedPlaybooks = Array.from(form.querySelectorAll('input[name="Playbooks"]:checked'))
-                                              .map(cb => cb.value)
-                                              .join(', ');
-
                 const formData = new FormData(form);
-                formData.set('Playbooks', checkedPlaybooks);
-                
-                // We need to convert FormData to a plain object for URLSearchParams
-                const plainFormData = Object.fromEntries(formData.entries());
-                const dataWithPlaybooks = { ...plainFormData, Playbooks: checkedPlaybooks };
                 
                 fetch(SCRIPT_URL, {
                     method: 'POST',
-                    body: new URLSearchParams(dataWithPlaybooks)
+                    body: formData
                 })
                 .then(res => res.json())
                 .then(data => {
