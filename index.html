@@ -437,7 +437,7 @@
             // Form submission to Google Sheet
             const form = document.getElementById('contact-form');
             const formStatus = document.getElementById('form-status');
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzpxXyLCmuwa1TYms2vRUCfBoLsDMAmnwK54c-BaYxlObpJh7AhWNzYdXd4Q1fmsQ1Q3w/exec';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1s1-Lrj1Kjdj-Y50fzkw190Rypgv8ikrkcK9_XUty349DcPKg_CfLvBQrVuClhr3uQA/exec';
 
             form.addEventListener('submit', e => {
                 e.preventDefault();
@@ -445,13 +445,17 @@
                 formStatus.className = 'text-gray-700';
                 
                 const formData = new FormData(form);
-                const plainFormData = Object.fromEntries(formData.entries());
-
+                
                 fetch(SCRIPT_URL, {
                     method: 'POST',
-                    body: new URLSearchParams(plainFormData)
+                    body: formData
                 })
-                .then(res => res.json())
+                .then(res => {
+                    if (res.ok) {
+                        return res.json();
+                    }
+                    throw new Error('Network response was not ok.');
+                })
                 .then(data => {
                     if (data.result === 'success') {
                         form.reset();
